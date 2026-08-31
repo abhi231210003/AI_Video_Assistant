@@ -1,0 +1,37 @@
+﻿# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets & Environment Configuration
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Media & Temporary Downloads
+downloads/
+*.wav
+*.mp3
+*.mp4
+*.mkv
+*.m4a
+
+# Local Vector Database & Indexes
+vector_db/
+test_vector_db/
+
+# Scratch & Debug outputs
+scratch_output.txt
+debug_*.py
+test_*.py
+
+# Streamlit & IDE settings
+.streamlit/
+.vscode/
+.idea/
+.DS_Store
