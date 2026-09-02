@@ -38,13 +38,6 @@ def transcribe_chunk_whisper(chunk_path: str) -> str:
     result = model.transcribe(chunk_path, task="transcribe")  
     return result["text"] 
 
-# def transcribe_chunk(chunk_path: str,translate:bool=False) -> str:
-
-#     model = load_model()  
-#     task="translate" if translate else "transcribe"
-#     result = model.transcribe(chunk_path, task=task)  
-#     return result["text"]  
-
 
 def _send_to_sarvam(piece_path: str) -> str:
     """Send one ≤30s WAV file to Sarvam and return the English transcript."""
@@ -67,42 +60,6 @@ def _send_to_sarvam(piece_path: str) -> str:
         response.raise_for_status()
 
     return response.json().get("transcript", "")
-# def _send_to_sarvam(piece_path: str) -> str:
-#     """Send one <=30s WAV file to Sarvam and return English transcript."""
-
-#     headers = {
-#         "api-subscription-key": SARVAM_API_KEY,
-#         "Connection": "close",
-#     }
-
-#     with open(piece_path, "rb") as f:
-#         files = {
-#             "file": (
-#                 os.path.basename(piece_path),
-#                 f,
-#                 "audio/wav",
-#             )
-#         }
-
-    #     data = {
-    #         "model": SARVAM_MODEL,
-    #         "mode": "translate",
-    #     }
-
-    #     response = requests.post(
-    #         SARVAM_STT_TRANSLATE_URL,
-    #         headers=headers,
-    #         files=files,
-    #         data=data,
-    #         timeout=120,
-    #     )
-
-    # if not response.ok:
-    #     print(f"\n❌ Sarvam returned {response.status_code}")
-    #     print(response.text)
-    #     response.raise_for_status()
-
-    # return response.json().get("transcript", "")
 
 
 def transcribe_chunk_sarvam(chunk_path: str) -> str:
