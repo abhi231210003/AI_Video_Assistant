@@ -1,6 +1,6 @@
 ﻿# 🎙️ AI Video & Meeting Assistant
 
-An AI-powered video and meeting intelligence platform built with **Python**, **OpenAI Whisper**, **Sarvam AI**, **LangChain (LCEL)**, **Mistral AI**, **ChromaDB**, and **Streamlit**.
+An AI-powered video and meeting intelligence platform built with **Python**, **OpenAI Whisper**, **Sarvam AI**, **LangChain (LCEL)**, **Groq API**, **ChromaDB**, and **Streamlit**.
 
 Transform any YouTube video, recorded meeting, lecture, or local audio/video file into structured transcripts, executive summaries, actionable insights, and an interactive **RAG (Retrieval-Augmented Generation) Chatbot**.
 
@@ -18,7 +18,7 @@ Transform any YouTube video, recorded meeting, lecture, or local audio/video fil
   - **English**: High-precision local transcription using **OpenAI Whisper** (configurable models: `tiny`, `base`, `small`, `medium`, `large`).
   - **Hindi / Hinglish**: Indian language speech-to-text and translation powered by **Sarvam AI API** (`saaras:v3`).
 
-- 🧠 **AI-Powered Meeting Insights (Mistral AI + LangChain)**:
+- 🧠 **AI-Powered Meeting Insights (Groq + LangChain)**:
   - **Automated Title Generation**: Creates clear, concise meeting titles.
   - **Executive Summary**: Generates structured, bulleted meeting summaries.
   - **Action Items**: Extracts actionable tasks, assigned owners, and deadlines.
@@ -60,7 +60,7 @@ Transform any YouTube video, recorded meeting, lecture, or local audio/video fil
   ┌───────────────┼──────────────────────────────┐
   ▼               ▼                              ▼
 [ Title ]    [ Summarizer ]               [ Extraction Engine ]
-(Mistral)      (Mistral)             (Action Items / Decisions / Qs)
+(Groq)      (Groq)             (Action Items / Decisions / Qs)
   │               │                              │
   └───────────────┼──────────────────────────────┘
                   ▼
@@ -69,7 +69,7 @@ Transform any YouTube video, recorded meeting, lecture, or local audio/video fil
                   │
                   ▼
        [ Interactive RAG Chat ]
-    (ChatMistralAI + LCEL Pipeline)
+    (ChatGroq + LCEL Pipeline)
 ```
 
 ---
@@ -128,7 +128,7 @@ pip install -r Requirements.txt
 Create a `.env` file in the root directory:
 ```env
 # Required for Summaries, Extractions & RAG Chat
-MISTRAL_API_KEY=your_mistral_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
 
 # Required for Hindi/Hinglish Transcription (Optional if only English is needed)
 SARVAM_API_KEY=your_sarvam_api_key_here
